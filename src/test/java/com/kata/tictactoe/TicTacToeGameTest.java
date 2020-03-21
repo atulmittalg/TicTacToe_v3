@@ -9,4 +9,11 @@ public class TicTacToeGameTest {
         TicTacToeGame ticTacToeGame = new TicTacToeGame();
         Assert.assertNotNull(ticTacToeGame);
     }
+
+    @Test
+    public void shouldAssignTokenXWhenFirstTurnIsPlayed(){
+        TicTacToeGame ticTacToeGame = new TicTacToeGame();
+        ticTacToeGame.playTurnAt(0,0);
+        Assert.assertEquals('X', ticTacToeGame.getTokenAt(0,0));
+    }
 }
