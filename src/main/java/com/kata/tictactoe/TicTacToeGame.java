@@ -12,13 +12,22 @@ public class TicTacToeGame {
         if (isXWinnerByRow()) {
             return "X is the Winner";
         }
-        if ((gameBoardLayout[0][0] == 'O') &&
-                (gameBoardLayout[0][0] == gameBoardLayout[0][1]) &&
-                (gameBoardLayout[0][0] == gameBoardLayout[0][2])) {
+        if (isOWinnerByRow()) {
             return "O is the Winner";
         }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
+    }
+
+    private boolean isOWinnerByRow() {
+        for(int row = 0; row <3 ; row++){
+            if ((gameBoardLayout[row][0] == 'O') &&
+                    (gameBoardLayout[row][0] == gameBoardLayout[row][1]) &&
+                    (gameBoardLayout[row][0] == gameBoardLayout[row][2])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isXWinnerByRow() {
