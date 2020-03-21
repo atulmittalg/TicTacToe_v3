@@ -14,6 +14,11 @@ public class TicTacToeGame {
                 (gameBoardLayout[0][0] == gameBoardLayout[0][2])) {
             return "X is the Winner";
         }
+        if ((gameBoardLayout[1][0] == 'X') &&
+                (gameBoardLayout[1][0] == gameBoardLayout[1][1]) &&
+                (gameBoardLayout[1][0] == gameBoardLayout[1][2])) {
+            return "X is the Winner";
+        }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
     }
