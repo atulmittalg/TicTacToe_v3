@@ -22,3 +22,10 @@ Using JAVA as the base and  Maven to handle the dependencies, following the appr
       	○ All nine squares are filled.
 	- If a player is able to draw three X’s or three O’s in a row, that player wins.
 	- If all nine squares are filled and neither player has three in a row, the game is a draw.
+	
+## Test Cases Covered
+
+    - X is assigned when first turn is played.
+	- O is assigned when second turn is played.
+	- Handling Position already filled Exception when turn played at a used position. 
+	- Declaring X is winner when First row is filled with 3 'X' tokens.
