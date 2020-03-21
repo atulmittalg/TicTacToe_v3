@@ -20,8 +20,17 @@ public class TicTacToeGame {
         if(isWinnerByLeftToRightDiagonal()) {
             return (currentTokenToPlay + " is the Winner");
         }
+        if(isWinnerByRightToLeftDiagonal()) {
+            return (currentTokenToPlay + " is the Winner");
+        }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
+    }
+
+    private boolean isWinnerByRightToLeftDiagonal() {
+        return (getTokenAt(0, 2) != '\0') &&
+                (getTokenAt(0, 2) == getTokenAt(1, 1)) &&
+                (getTokenAt(0, 2) == (getTokenAt(2, 0)));
     }
 
     private boolean isWinnerByLeftToRightDiagonal() {
