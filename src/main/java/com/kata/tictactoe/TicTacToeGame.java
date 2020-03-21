@@ -15,8 +15,22 @@ public class TicTacToeGame {
         if (isOWinnerByRow()) {
             return "O is the Winner";
         }
+        if (isXWinnerByColumn()) {
+            return "X is the Winner";
+        }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
+    }
+
+    private boolean isXWinnerByColumn() {
+        for(int column = 0; column <3 ; column++){
+            if ((gameBoardLayout[0][column] == 'X') &&
+                    (gameBoardLayout[0][column] == gameBoardLayout[1][column]) &&
+                    (gameBoardLayout[0][column] == gameBoardLayout[2][column])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isOWinnerByRow() {
