@@ -9,18 +9,22 @@ public class TicTacToeGame {
             throw new PositionAlreadyInUseException(positionX, positionY);
         }
         gameBoardLayout[positionX][positionY] = currentTokenToPlay;
-        if ((gameBoardLayout[0][0] == 'X') &&
-                (gameBoardLayout[0][0] == gameBoardLayout[0][1]) &&
-                (gameBoardLayout[0][0] == gameBoardLayout[0][2])) {
-            return "X is the Winner";
-        }
-        if ((gameBoardLayout[1][0] == 'X') &&
-                (gameBoardLayout[1][0] == gameBoardLayout[1][1]) &&
-                (gameBoardLayout[1][0] == gameBoardLayout[1][2])) {
+        if (isXWinnerByRow()) {
             return "X is the Winner";
         }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
+    }
+
+    private boolean isXWinnerByRow() {
+        for(int row = 0; row <3 ; row++){
+            if ((gameBoardLayout[row][0] == 'X') &&
+                    (gameBoardLayout[row][0] == gameBoardLayout[row][1]) &&
+                    (gameBoardLayout[row][0] == gameBoardLayout[row][2])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void setCurrentTokenToPlayValueForNextTurn() {
