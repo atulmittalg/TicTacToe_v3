@@ -11,25 +11,19 @@ public class TicTacToeGame {
             throw new PositionAlreadyInUseException(positionX, positionY);
         }
         gameBoardLayout[positionX][positionY] = currentTokenToPlay;
-        if (isXWinnerByRow()) {
-            return "X is the Winner";
+        if (isWinnerByRow()) {
+            return (currentTokenToPlay + " is the Winner");
         }
-        if (isOWinnerByRow()) {
-            return "O is the Winner";
-        }
-        if (isXWinnerByColumn()) {
-            return "X is the Winner";
-        }
-        if (isOWinnerByColumn()) {
-            return "O is the Winner";
+        if (isWinnerByColumn()) {
+            return (currentTokenToPlay + " is the Winner");
         }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
     }
 
-    private boolean isOWinnerByColumn() {
+    private boolean isWinnerByColumn(){
         for(int column = 0; column <3 ; column++){
-            if ((getTokenAt(0, column) == TOKEN_O) &&
+            if ((getTokenAt(0, column) != '\0') &&
                     (getTokenAt(0, column) == getTokenAt(1, column)) &&
                     (getTokenAt(0, column) == getTokenAt(2, column))) {
                 return true;
@@ -38,31 +32,9 @@ public class TicTacToeGame {
         return false;
     }
 
-    private boolean isXWinnerByColumn() {
-        for(int column = 0; column <3 ; column++){
-            if ((getTokenAt(0, column) == TOKEN_X) &&
-                    (getTokenAt(0, column) == getTokenAt(1, column)) &&
-                    (getTokenAt(0, column) == getTokenAt(2, column))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isOWinnerByRow() {
+    private boolean isWinnerByRow() {
         for(int row = 0; row <3 ; row++){
-            if ((getTokenAt(row,0) == TOKEN_O) &&
-                    (getTokenAt(row,0) == getTokenAt(row,1)) &&
-                    (getTokenAt(row,0) == (getTokenAt(row,2)))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isXWinnerByRow() {
-        for(int row = 0; row <3 ; row++){
-            if ((getTokenAt(row,0) == TOKEN_X) &&
+            if ((getTokenAt(row,0) != '\0') &&
                     (getTokenAt(row,0) == getTokenAt(row,1)) &&
                     (getTokenAt(row,0) == (getTokenAt(row,2)))) {
                 return true;
