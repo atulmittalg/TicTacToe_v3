@@ -65,4 +65,14 @@ public class TicTacToeGameTest {
         assertEquals("X is the Winner", ticTacToeGame.playTurnAt(1,2));
     }
 
+    @Test
+    public void shouldDeclareWinnerIsOWhenFirstRowIsAllTokenX() throws PositionAlreadyInUseException {
+        ticTacToeGame.playTurnAt(1,0);
+        ticTacToeGame.playTurnAt(0,0);
+        ticTacToeGame.playTurnAt(2,0);
+        ticTacToeGame.playTurnAt(0,1);
+        ticTacToeGame.playTurnAt(2,2);
+        assertEquals("O is the Winner", ticTacToeGame.playTurnAt(0,2));
+    }
+
 }

@@ -12,6 +12,11 @@ public class TicTacToeGame {
         if (isXWinnerByRow()) {
             return "X is the Winner";
         }
+        if ((gameBoardLayout[0][0] == 'O') &&
+                (gameBoardLayout[0][0] == gameBoardLayout[0][1]) &&
+                (gameBoardLayout[0][0] == gameBoardLayout[0][2])) {
+            return "O is the Winner";
+        }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
     }
