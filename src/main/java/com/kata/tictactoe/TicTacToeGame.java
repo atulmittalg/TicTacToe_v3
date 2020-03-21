@@ -23,8 +23,22 @@ public class TicTacToeGame {
         if(isWinnerByRightToLeftDiagonal()) {
             return (currentTokenToPlay + " is the Winner");
         }
+        if(isDraw()){
+            return "It is a Draw";
+        }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
+    }
+
+    private boolean isDraw() {
+        for (int row = 0; row < 3; row++){
+            for (int column = 0; column < 3; column++){
+                if (getTokenAt(row,column) == EMPTY_POSITION){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private boolean isWinnerByRightToLeftDiagonal() {
