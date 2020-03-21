@@ -29,3 +29,7 @@ Using JAVA as the base and  Maven to handle the dependencies, following the appr
 	- O is assigned when second turn is played.
 	- Handling Position already filled Exception when turn played at a used position. 
 	- Declaring X is winner when First row is filled with 3 'X' tokens.
+	- Declaring O is winner when First row is filled with 3 'O' tokens.
+	- Declaring X is winner when First column is filled with 3 'X' tokens.
+	- Declaring O is winner when First column is filled with 3 'O' tokens.
+	- Declaring X is winner when Left to Right Diagonal is filled with 3 'X' tokens.
