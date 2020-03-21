@@ -6,12 +6,11 @@ public class TicTacToeGame {
 
     public void playTurnAt(final int positionX, final int positionY) {
         gameBoardLayout[positionX][positionY] = currentTokenToPlay;
-        if(currentTokenToPlay == 'X'){
-            currentTokenToPlay = 'O';
-        }
-        else{
-            currentTokenToPlay = 'X';
-        }
+        setCurrentTokenToPlayValueForNextTurn();
+    }
+
+    private void setCurrentTokenToPlayValueForNextTurn() {
+        currentTokenToPlay = (currentTokenToPlay == 'X') ? 'O' : 'X';
     }
 
     public char getTokenAt(final int positionX, final int positionY) {
