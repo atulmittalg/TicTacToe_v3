@@ -1,8 +1,10 @@
 package com.kata.tictactoe;
 
 public class TicTacToeGame {
+    private final char TOKEN_X = 'X';
+    private final char TOKEN_O = 'O';
     private char[][] gameBoardLayout = new char[3][3];
-    private char currentTokenToPlay = 'X';
+    private char currentTokenToPlay = TOKEN_X;
 
     public String playTurnAt(final int positionX, final int positionY) throws PositionAlreadyInUseException {
         if(gameBoardLayout[positionX][positionY] != '\0'){
@@ -24,9 +26,9 @@ public class TicTacToeGame {
 
     private boolean isXWinnerByColumn() {
         for(int column = 0; column <3 ; column++){
-            if ((gameBoardLayout[0][column] == 'X') &&
-                    (gameBoardLayout[0][column] == gameBoardLayout[1][column]) &&
-                    (gameBoardLayout[0][column] == gameBoardLayout[2][column])) {
+            if ((getTokenAt(0, column) == TOKEN_X) &&
+                    (getTokenAt(0, column) == getTokenAt(1, column)) &&
+                    (getTokenAt(0, column) == getTokenAt(2, column))) {
                 return true;
             }
         }
@@ -35,9 +37,9 @@ public class TicTacToeGame {
 
     private boolean isOWinnerByRow() {
         for(int row = 0; row <3 ; row++){
-            if ((gameBoardLayout[row][0] == 'O') &&
-                    (gameBoardLayout[row][0] == gameBoardLayout[row][1]) &&
-                    (gameBoardLayout[row][0] == gameBoardLayout[row][2])) {
+            if ((getTokenAt(row,0) == TOKEN_O) &&
+                    (getTokenAt(row,0) == getTokenAt(row,1)) &&
+                    (getTokenAt(row,0) == (getTokenAt(row,2)))) {
                 return true;
             }
         }
@@ -46,9 +48,9 @@ public class TicTacToeGame {
 
     private boolean isXWinnerByRow() {
         for(int row = 0; row <3 ; row++){
-            if ((gameBoardLayout[row][0] == 'X') &&
-                    (gameBoardLayout[row][0] == gameBoardLayout[row][1]) &&
-                    (gameBoardLayout[row][0] == gameBoardLayout[row][2])) {
+            if ((getTokenAt(row,0) == TOKEN_X) &&
+                    (getTokenAt(row,0) == getTokenAt(row,1)) &&
+                    (getTokenAt(row,0) == (getTokenAt(row,2)))) {
                 return true;
             }
         }
@@ -56,7 +58,7 @@ public class TicTacToeGame {
     }
 
     private void setCurrentTokenToPlayValueForNextTurn() {
-        currentTokenToPlay = (currentTokenToPlay == 'X') ? 'O' : 'X';
+        currentTokenToPlay = (currentTokenToPlay == TOKEN_X) ? TOKEN_O : TOKEN_X;
     }
 
     public char getTokenAt(final int positionX, final int positionY) {
