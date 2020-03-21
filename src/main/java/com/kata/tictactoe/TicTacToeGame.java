@@ -11,16 +11,7 @@ public class TicTacToeGame {
             throw new PositionAlreadyInUseException(positionX, positionY);
         }
         gameBoardLayout[positionX][positionY] = currentTokenToPlay;
-        if (isWinnerByRow()) {
-            return (currentTokenToPlay + " is the Winner");
-        }
-        if (isWinnerByColumn()) {
-            return (currentTokenToPlay + " is the Winner");
-        }
-        if(isWinnerByLeftToRightDiagonal()) {
-            return (currentTokenToPlay + " is the Winner");
-        }
-        if(isWinnerByRightToLeftDiagonal()) {
+        if (isWinner()) {
             return (currentTokenToPlay + " is the Winner");
         }
         if(isDraw()){
@@ -28,6 +19,19 @@ public class TicTacToeGame {
         }
         setCurrentTokenToPlayValueForNextTurn();
         return null;
+    }
+
+    private boolean isWinner() {
+        if (isWinnerByRow()) {
+            return true;
+        }
+        if (isWinnerByColumn()) {
+            return true;
+        }
+        if(isWinnerByLeftToRightDiagonal()) {
+            return true;
+        }
+        return isWinnerByRightToLeftDiagonal();
     }
 
     private boolean isDraw() {
